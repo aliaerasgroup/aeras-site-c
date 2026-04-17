@@ -4,195 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AERAS GROUP | The Era of Human Connection</title>
-
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="light-theme">
+<body>
 
-    <div class="video-background">
-        <video autoplay muted loop playsinline id="bg-video">
-            <source src="background-video-v2.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-    </div>
-
-    <nav class="glass-nav" id="navbar">
-        <div class="nav-container">
-            <img src="corner-logo.png" alt="Aeras Group" class="nav-logo dark-logo">
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>
-            <div class="nav-links" id="nav-links">
-                <a href="#about">About</a>
-                <a href="#divisions">Divisions</a>
-                <a href="#contact" class="nav-cta">Contact Us</a>
-            </div>
+    <nav class="glass-nav">
+        <div class="nav-brand">
+            <span class="logo-mark">A</span>
+            <span class="logo-text">Aeras Group</span>
+        </div>
+        <div class="nav-links">
+            <a href="#definition">Meaning</a>
+            <a href="#services">Expertise</a>
+            <a href="#contact" class="btn-glass">Contact</a>
         </div>
     </nav>
 
-    <section class="hero-section">
-        <div class="hero-content">
-            <img src="Logo Light - Transparent.png" alt="Aeras Group" class="hero-logo dark-logo">
-            <span class="hero-eyebrow">Est. 2024 · Toronto, CA</span>
-            <h1 class="hero-title">AERAS GROUP</h1>
-            <p class="hero-sub">The era of human connection</p>
+    <header class="hero" id="hero">
+        <div class="hero-text back-layer">
+            <h1><br>Connection.</h1>
         </div>
-        <div class="hero-scroll-cue">
-            <div class="scroll-line"></div>
-            <span class="scroll-label">Scroll</span>
-        </div>
-    </section>
 
-    <section class="dict-section">
-        <div class="container">
-            <div class="dict-card glass reveal">
-                <div class="dict-head">
-                    <span class="dict-word">Ae·ras</span>
-                    <span class="dict-phonetic">/ 'air·as /</span>
-                    <span class="dict-pos">noun</span>
-                </div>
-                <div class="dict-defs">
-                    <p class="dict-def"><span class="def-num">01</span>Drawing from concepts of air, atmosphere, and elevation; representing movement, clarity, and reach.</p>
-                    <p class="dict-def"><span class="def-num">02</span>A dynamic partner that evolves alongside its clients, reflecting fluidity and responsiveness over rigidity.</p>
-                </div>
+        <div id="cloud-canvas"></div>
+
+        <div class="hero-text front-layer">
+            <div class="hero-left">
+                <h1>The Era of<br>Human</h1>
+                <p class="subtitle fade-up">Ascend into absolute clarity.</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="definition" class="section definition-sec">
+        <div class="glass-card reveal">
+            <h2 class="dict-word">Aeras</h2>
+            <p class="dict-phonetic">/ˈɛər.əs/</p>
+            <div class="dict-def">
+                <span class="def-num">1.</span>
+                <p>The highest, purest atmosphere; the air breathed by the gods.</p>
+            </div>
+            <div class="dict-def">
+                <span class="def-num">2.</span>
+                <p>A state of elevated business clarity and human connection.</p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-grid glass reveal">
-                <div class="about-text">
-                    <span class="about-tag">Our Purpose</span>
-                    <h2 class="about-title">Bridging automation<br>with authenticity</h2>
-                    <div class="about-body">
-                        <p>Aeras Group is a modern advisory and consulting firm built for an evolving, AI-driven world. The firm exists to bridge the growing gap between automation and authentic human relationships.</p>
-                        <p>While technology accelerates business, Aeras ensures that trust, connection, and adaptability remain at the center of every engagement.</p>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="main.png" alt="Strategy and Execution" class="about-img">
-                </div>
+    <section id="services" class="section services-sec">
+        <div class="section-header reveal">
+            <h2>Our Disciplines</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card glass-panel reveal">
+                <h3>Strategy</h3>
+                <p>Scaling, operational optimization, and executive advisory designed for the modern era.</p>
+            </div>
+            <div class="service-card glass-panel reveal" style="transition-delay: 0.1s;">
+                <h3>Digital</h3>
+                <p>Brand creation, physical assets, and process automation that speak volumes.</p>
+            </div>
+            <div class="service-card glass-panel reveal" style="transition-delay: 0.2s;">
+                <h3>Talent</h3>
+                <p>Fractional roles, executive recruitment, and certified specialists to drive growth.</p>
             </div>
         </div>
     </section>
 
-    <section class="quote-section">
-        <div class="container">
-            <div class="quote-card glass-pop reveal">
-                <p class="quote-text">We position as a dynamic partner that embodies <em>fluidity</em> and <em>responsiveness</em>, evolving alongside each client — not just advising them.</p>
-            </div>
+    <footer id="contact" class="closing-sec">
+        <div class="closing-content reveal">
+            <h2>Elevate your standard.</h2>
+            <p>Reach out to discover what exists above the clouds.</p>
+            <button class="btn-primary">Initiate Contact</button>
         </div>
-    </section>
-
-    <section id="divisions" class="divisions-section">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-label">What We Do</p>
-                <h2 class="section-title">Our Divisions</h2>
-            </div>
-
-            <div class="bubble-grid reveal">
-                <div class="division-card glass" data-division="strategy">
-                    <span class="div-label">01</span>
-                    <h3 class="div-name">Strategy</h3>
-                    <div class="div-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
-                </div>
-                <div class="division-card glass" data-division="digital">
-                    <span class="div-label">02</span>
-                    <h3 class="div-name">Digital</h3>
-                    <div class="div-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                </div>
-                <div class="division-card glass" data-division="talent">
-                    <span class="div-label">03</span>
-                    <h3 class="div-name">Talent</h3>
-                    <div class="div-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8zm14 14v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-                    </div>
-                </div>
-                <div class="division-card glass" data-division="connect">
-                    <span class="div-label">04</span>
-                    <h3 class="div-name">Connect</h3>
-                    <div class="div-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8a3 3 0 100-6 3 3 0 000 6zM6 21a3 3 0 100-6 3 3 0 000 6zM18 21a3 3 0 100-6 3 3 0 000 6zM12 12a3 3 0 100-6 3 3 0 000 6z"/></svg>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2026 AERAS Group · The Era of Human Connection</p>
         </div>
-    </section>
-
-    <div class="modal-overlay" id="modal-overlay">
-        <div class="modal-panel" id="modal-panel">
-            <button class="modal-close" id="modal-close">✕</button>
-            <div class="modal-content">
-                <span class="modal-label" id="modal-label"></span>
-                <h2 class="modal-title" id="modal-title"></h2>
-                <ul class="modal-services" id="modal-services"></ul>
-                <div class="modal-footer">
-                    <a href="#contact" class="modal-cta" onclick="closeModal()">Inquire for Services</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="contact-card glass reveal">
-                <div class="section-header">
-                    <p class="section-label">Contact</p>
-                    <h2 class="section-title">Start your era</h2>
-                </div>
-                
-                <form class="contact-form" action="https://formspree.io/f/xvgzlowy" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Full Name</label>
-                            <input type="text" name="Name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Email Address</label>
-                            <input type="email" name="Email" placeholder="john@company.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Phone Number</label>
-                            <input type="tel" name="Phone" placeholder="(555) 000-0000">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Business Name <span class="opt">(Optional)</span></label>
-                            <input type="text" name="Business" placeholder="Your Company">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Website <span class="opt">(Optional)</span></label>
-                            <input type="text" name="Website" placeholder="https://yoursite.com">
-                        </div>
-                    </div>
-
-                    <div class="form-group full">
-                        <label class="form-label">Message</label>
-                        <textarea name="Message" rows="6" placeholder="How can we help you?" required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2026 AERAS Group &nbsp;·&nbsp; aerasgroup.ca &nbsp;·&nbsp; The Era of Human Connection</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
