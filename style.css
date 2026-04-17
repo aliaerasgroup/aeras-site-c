@@ -1,0 +1,203 @@
+/* =========================================================
+   AERAS GROUP — style.css
+   Aesthetic: Apple Liquid Glass · Airy Light · Refined
+   ========================================================= */
+
+:root {
+    --navy:       #08111E;
+    --midnight:   #1a2f4e;
+    --sky:        #4A7FB5;
+    --sky-light:  #6b9fd4;
+    --bg-light:   #f7f9fc;
+    --glass-bg:   rgba(255, 255, 255, 0.45);
+    --glass-hi:   rgba(255, 255, 255, 0.75);
+    --glass-blur: blur(45px) saturate(160%);
+    --glass-shadow: 0 20px 60px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    --ease-fluid:  cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+/* ── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    background: var(--bg-light);
+    color: var(--navy);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── VIDEO BACKGROUND ───────────────────────────────────── */
+.video-background {
+    position: fixed; inset: 0; z-index: -1;
+}
+#bg-video {
+    width: 100%; height: 100%; object-fit: cover;
+}
+.video-overlay {
+    position: absolute; inset: 0;
+    background: rgba(255, 255, 255, 0.4); /* Airy tint */
+}
+
+/* ── LOGO INVERSION ─────────────────────────────────────── */
+.dark-logo {
+    filter: brightness(0) saturate(100%) invert(5%) sepia(21%) saturate(1636%) hue-rotate(176deg) brightness(95%) contrast(97%);
+}
+
+/* ── GLASS BASE ─────────────────────────────────────────── */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-hi);
+    box-shadow: var(--glass-shadow);
+}
+.glass-pop {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--glass-shadow);
+}
+
+/* ── NAVIGATION ─────────────────────────────────────────── */
+.glass-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1320px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(30px) saturate(200%);
+    -webkit-backdrop-filter: blur(30px) saturate(200%);
+    border-radius: 100px;
+    padding: 10px 44px;
+    z-index: 1000;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { height: 60px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 52px; }
+.nav-links a {
+    color: var(--navy);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+}
+.nav-links a:hover { opacity: 0.5; }
+.nav-cta {
+    background: var(--navy) !important;
+    color: #fff !important;
+    padding: 11px 30px;
+    border-radius: 50px;
+}
+
+/* ── HERO ───────────────────────────────────────────────── */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+.hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 300;
+    letter-spacing: 14px;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: linear-gradient(180deg, var(--navy) 0%, var(--sky) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    color: var(--navy);
+}
+.scroll-line {
+    width: 1px;
+    height: 55px;
+    background: linear-gradient(to bottom, var(--navy), transparent);
+}
+
+/* ── DICTIONARY ─────────────────────────────────────────── */
+.dict-section { padding: 80px 0; }
+.dict-card {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 65px 70px;
+    border-radius: 52px;
+}
+.dict-word { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--navy); }
+.dict-def { color: rgba(8, 17, 30, 0.8); line-height: 1.8; }
+
+/* ── ABOUT ──────────────────────────────────────────────── */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 70px;
+    padding: 80px;
+    border-radius: 62px;
+}
+.about-title { color: var(--navy); font-family: 'Cormorant Garamond', serif; }
+.about-body p { color: rgba(8, 17, 30, 0.7); }
+
+/* ── DIVISIONS ──────────────────────────────────────────── */
+.bubble-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.division-card {
+    border-radius: 52px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s var(--ease-fluid);
+}
+.division-card:hover { transform: translateY(-10px); }
+.div-name { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--navy); }
+.div-label { font-family: 'Montserrat', sans-serif; color: var(--sky); letter-spacing: 3px; }
+
+/* ── CONTACT FORM ───────────────────────────────────────── */
+.contact-card { padding: 80px; border-radius: 60px; }
+.form-label { color: var(--navy); font-weight: 600; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+input, textarea {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+    margin-top: 8px;
+    color: var(--navy);
+}
+.submit-btn {
+    background: var(--navy);
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.submit-btn:hover { background: var(--sky); }
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+footer { padding: 60px 0; text-align: center; opacity: 0.6; font-size: 0.8rem; color: var(--navy); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 960px) {
+    .about-grid, .bubble-grid { grid-template-columns: 1fr; }
+    .glass-nav { width: 95%; padding: 10px 20px; }
+}
