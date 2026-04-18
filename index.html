@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,20 +20,22 @@
         <div class="video-overlay"></div>
     </div>
 
+    <div id="cloud-canvas"></div>
+
     <nav class="glass-nav">
         <a href="#" class="nav-brand">
             <img src="corner-logo.png" alt="Aeras Group" class="nav-logo">
         </a>
         <div class="nav-links">
-            <a href="#definition">Meaning</a>
+            <a href="#definition">About</a>
             <a href="#divisions">Divisions</a>
             <a href="#contact" class="btn-glass">Contact</a>
         </div>
     </nav>
 
     <header class="hero" id="hero">
-        <div class="hero-text reveal">
-            <h1>The Era of<br>Human Connection.</h1>
+        <div class="hero-left reveal">
+            <h1>The Era of<br>Human<br>Connection.</h1>
         </div>
     </header>
 
@@ -61,7 +63,7 @@
         </div>
         <div class="services-grid">
             <div class="service-card glass-panel reveal">
-                <img src="aeras-strategy.png" alt="Aeras Strategy" class="division-img">
+                <img src="aeras-strategy.jpg" alt="Aeras Strategy" class="division-img">
                 <span class="tag">Aeras Strategy</span>
                 <h3>Strategy</h3>
                 <ul class="service-list">
@@ -71,7 +73,7 @@
                 </ul>
             </div>
             <div class="service-card glass-panel reveal" style="transition-delay: 0.1s;">
-                <img src="aeras-digital.png" alt="Aeras Digital" class="division-img">
+                <img src="aeras-digital.jpg" alt="Aeras Digital" class="division-img">
                 <span class="tag">Aeras Digital</span>
                 <h3>Digital</h3>
                 <ul class="service-list">
@@ -81,7 +83,7 @@
                 </ul>
             </div>
             <div class="service-card glass-panel reveal" style="transition-delay: 0.2s;">
-                <img src="aeras-talent.png" alt="Aeras Talent" class="division-img">
+                <img src="aeras-talent.jpg" alt="Aeras Talent" class="division-img">
                 <span class="tag">Aeras Talent</span>
                 <h3>Talent</h3>
                 <ul class="service-list">
@@ -91,7 +93,7 @@
                 </ul>
             </div>
             <div class="service-card glass-panel reveal" style="transition-delay: 0.3s;">
-                <img src="aeras-connect.png" alt="Aeras Connect" class="division-img">
+                <img src="aeras-connect.jpg" alt="Aeras Connect" class="division-img">
                 <span class="tag">Aeras Connect</span>
                 <h3>Connect</h3>
                 <ul class="service-list">
@@ -106,20 +108,22 @@
     <section id="contact" class="section contact-sec">
         <div class="glass-card reveal">
             <h2>Initiate Connection</h2>
-            <p>Our team typically responds within 24 hours.</p>
+            <p class="contact-sub">Our team typically responds within 24 hours.</p>
             
             <form id="contact-form" action="https://formspree.io/f/mqakpjne" method="POST">
                 <div class="form-grid">
-                    <input type="text" name="Name" placeholder="Full Name" required>
+                    <input type="text" name="Name" placeholder="Full Name" required class="full-width">
+                    
                     <input type="tel" name="Phone" placeholder="Phone Number" required>
                     <input type="email" name="Email" placeholder="Email Address" required>
+                    
                     <input type="text" name="Business" placeholder="Business Name (Optional)">
                     <input type="url" name="Website" placeholder="Business Website (Optional)">
+                    
+                    <textarea name="Message" rows="5" placeholder="How can we help you?" required class="full-width"></textarea>
                 </div>
-                <textarea name="Message" rows="5" placeholder="How can we help you?" required></textarea>
                 <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
             </form>
-            <div id="form-status"></div>
         </div>
     </section>
 
@@ -127,6 +131,7 @@
         <p>© 2026 AERAS Group · The Era of Human Connection</p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
