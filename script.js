@@ -13,61 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // 2. CONTACT FORM VALIDATION & SUBMISSION
+    // 2. CONTACT FORM FEEDBACK
+    // We let the browser handle the actual POST to FormSubmit
+    // so that the user gets the confirmation page.
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
-    const errBox = document.getElementById('error-message');
-
+    
     if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Clear previous errors
-            errBox.style.display = 'none';
-            btn.textContent = 'Authenticating...';
-            btn.disabled = true;
-
-            // Basic Field Check
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-
-            if (!name || !phone || !email) {
-                showError("Please complete all mandatory fields.");
-                return;
-            }
-
-            try {
-                const response = await fetch(form.action, { 
-                    method: 'POST', 
-                    body: new FormData(form), 
-                    headers: { 'Accept': 'application/json' } 
-                });
-                
-                if (response.ok) {
-                    btn.textContent = 'Connection Established ✓';
-                    btn.style.background = '#4A7FB5';
-                    form.reset();
-                    
-                    setTimeout(() => { 
-                        btn.textContent = 'Send Message'; 
-                        btn.style.background = '';
-                        btn.disabled = false;
-                    }, 5000);
-                } else {
-                    const data = await response.json();
-                    showError(data.message || "The server rejected the connection. Please try again.");
-                }
-            } catch (err) {
-                showError("Connection failed. Please check your network and try again.");
-            }
+        form.addEventListener('submit', () => {
+            // Update UI briefly before the page redirects
+            btn.textContent = 'Message Sent!';
+            btn.style.background = '#4A7FB5';
+            btn.style.pointerEvents = 'none';
         });
-    }
-
-    function showError(msg) {
-        errBox.textContent = msg;
-        errBox.style.display = 'block';
-        btn.textContent = 'Try Again';
-        btn.disabled = false;
     }
 });
