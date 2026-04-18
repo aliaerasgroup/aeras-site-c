@@ -15,12 +15,10 @@
 
     <div class="video-background">
         <video autoplay muted loop playsinline id="bg-video">
-            <source src="background-video.mp4" type="video/mp4">
+            <source src="background-video-v2.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
     </div>
-
-    <div id="cloud-canvas"></div>
 
     <nav class="glass-nav">
         <a href="#" class="nav-brand">
@@ -33,59 +31,64 @@
         </div>
     </nav>
 
-    <header class="hero" id="hero">
-        <div class="hero-left reveal">
-            <h1 class="gradient-text">The Era of<br>Human<br>Connection.</h1>
+    <header class="hero">
+        <div class="hero-container reveal">
+            <div class="hero-content">
+                <h1 class="gradient-text">The Era of<br>Human<br>Connection.</h1>
+            </div>
+            <div class="hero-visual">
+                <img src="hero-logo.png" alt="Aeras Premium Logo" class="hero-img">
+            </div>
         </div>
     </header>
 
-    <section id="definition" class="section definition-sec">
+    <section id="definition" class="section">
         <div class="glass-card reveal bubbly">
             <h2 class="dict-word">Aeras</h2>
             <p class="dict-phonetic">/ 'air-as / <span class="dict-pos">noun</span></p>
             
             <div class="dict-def">
-                <p><span class="def-num">1.</span> Draws from concepts of air, atmosphere, and elevation; representing movement, clarity, and reach.</p>
-                <p><span class="def-num">2.</span> Reflects fluidity and responsiveness rather than rigidity, positioning as a dynamic partner that evolves alongside clients.</p>
+                <p><span class="def-num">1.</span> Concepts of air, atmosphere, and elevation; representing movement, clarity, and reach.</p>
+                <p><span class="def-num">2.</span> A dynamic partner that evolves alongside clients with fluidity and responsiveness.</p>
             </div>
             
             <hr class="def-divider">
             
             <div class="about-text">
-                <p><strong>Aeras Group</strong> is a modern advisory and consulting firm built for an evolving, AI-driven world. The firm exists to bridge the growing gap between automation and authentic human relationships. While technology accelerates business, Aeras ensures that trust, connection, and adaptability remain at the center of every engagement.</p>
+                <p><strong>Aeras Group</strong> is a modern advisory firm built for an evolving, AI-driven world. We bridge the gap between automation and authentic relationships, ensuring trust remains at the center of every engagement.</p>
             </div>
         </div>
     </section>
 
-    <section id="divisions" class="section services-sec">
+    <section id="divisions" class="section">
         <div class="section-header reveal">
             <h2>Our Divisions</h2>
         </div>
         <div class="services-grid">
             <div class="service-card glass-panel bubbly reveal">
-                <img src="aeras-strategy.jpg" alt="Aeras Strategy" class="division-img">
-                <span class="tag">Aeras Strategy</span>
-                <h3>Strategy</h3>
+                <img src="aeras-strategy.jpg" alt="Strategy" class="division-img">
+                <span class="tag">Strategy</span>
+                <h3>Aeras Strategy</h3>
                 <ul class="service-list">
-                    <li>Business Scaling & Growth</li>
+                    <li>Business Scaling</li>
                     <li>Operational Optimization</li>
                     <li>Executive Advisory</li>
                 </ul>
             </div>
             <div class="service-card glass-panel bubbly reveal" style="transition-delay: 0.1s;">
-                <img src="aeras-digital.jpg" alt="Aeras Digital" class="division-img">
-                <span class="tag">Aeras Digital</span>
-                <h3>Digital</h3>
+                <img src="aeras-digital.jpg" alt="Digital" class="division-img">
+                <span class="tag">Digital</span>
+                <h3>Aeras Digital</h3>
                 <ul class="service-list">
-                    <li>Brand Creation & Design</li>
+                    <li>Brand Creation</li>
                     <li>Website Development</li>
                     <li>Process Automation</li>
                 </ul>
             </div>
             <div class="service-card glass-panel bubbly reveal" style="transition-delay: 0.2s;">
-                <img src="aeras-talent.jpg" alt="Aeras Talent" class="division-img">
-                <span class="tag">Aeras Talent</span>
-                <h3>Talent</h3>
+                <img src="aeras-talent.jpg" alt="Talent" class="division-img">
+                <span class="tag">Talent</span>
+                <h3>Aeras Talent</h3>
                 <ul class="service-list">
                     <li>Certified Specialists</li>
                     <li>Executive Recruitment</li>
@@ -93,31 +96,30 @@
                 </ul>
             </div>
             <div class="service-card glass-panel bubbly reveal" style="transition-delay: 0.3s;">
-                <img src="aeras-connect.jpg" alt="Aeras Connect" class="division-img">
-                <span class="tag">Aeras Connect</span>
-                <h3>Connect</h3>
+                <img src="aeras-connect.jpg" alt="Connect" class="division-img">
+                <span class="tag">Connect</span>
+                <h3>Aeras Connect</h3>
                 <ul class="service-list">
-                    <li>Authentic Relationships</li>
-                    <li>Client Engagement</li>
+                    <li>Relationships</li>
+                    <li>Engagement</li>
                     <li>Network Expansion</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="section contact-sec">
+    <section id="contact" class="section">
         <div class="glass-card reveal bubbly">
             <h2>Initiate Connection</h2>
-            <p class="contact-sub">Our team typically responds within 24 hours.</p>
-            
+            <p class="contact-sub">Responsive within 24 hours.</p>
             <form id="contact-form" action="https://formspree.io/f/mqakpjne" method="POST">
                 <div class="form-grid">
                     <input type="text" name="Name" placeholder="Full Name" required class="full-width glass-input">
                     <input type="tel" name="Phone" placeholder="Phone Number" required class="glass-input">
                     <input type="email" name="Email" placeholder="Email Address" required class="glass-input">
-                    <input type="text" name="Business" placeholder="Business Name (Optional)" class="glass-input">
-                    <input type="url" name="Website" placeholder="Business Website (Optional)" class="glass-input">
-                    <textarea name="Message" rows="5" placeholder="How can we help you?" required class="full-width glass-input"></textarea>
+                    <input type="text" name="Business" placeholder="Business Name" class="glass-input">
+                    <input type="url" name="Website" placeholder="Business Website" class="glass-input">
+                    <textarea name="Message" rows="5" placeholder="Message" required class="full-width glass-input"></textarea>
                 </div>
                 <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
             </form>
@@ -128,7 +130,6 @@
         <p>© 2026 AERAS Group · The Era of Human Connection</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
