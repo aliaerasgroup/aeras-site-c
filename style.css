@@ -1,7 +1,3 @@
-/* =========================================================
-   AERAS GROUP — Final Refined Styles
-   ========================================================= */
-
 :root {
     --navy: #0F1C2E;
     --midnight: #1F3A5F;
@@ -45,18 +41,27 @@ body { background: var(--white); color: var(--navy); font-family: 'DM Sans', san
 .bubbly { background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); box-shadow: var(--bubbly-rim); }
 .glass-card { padding: 80px; max-width: 1000px; width: 100%; border-radius: 40px; }
 
-/* ── DIVISIONS SECTION (FIXED 4-COLUMN) ── */
+/* ── DIVISIONS SECTION (FLEX ROW FIX) ── */
 .section-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: var(--navy); font-weight: 800; margin-bottom: 60px; }
 
-.services-grid { 
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); /* FORCES 4 COLUMNS ON DESKTOP */
+.services-flex-row { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: stretch; /* Makes them all equal height */
     gap: 24px; 
     width: 100%; 
     max-width: 1400px; 
 }
 
-.glass-panel { padding: 40px 30px; border-radius: 40px; transition: transform 0.4s ease; text-align: left; }
+.glass-panel { 
+    flex: 1; /* Forces all 4 to squeeze into the same row seamlessly */
+    min-width: 250px; 
+    padding: 40px 30px; 
+    border-radius: 40px; 
+    transition: transform 0.4s ease; 
+    text-align: left; 
+}
 .glass-panel:hover { transform: translateY(-12px); }
 
 .img-container { width: 100%; border-radius: 28px; overflow: hidden; margin-bottom: 24px; box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
@@ -89,7 +94,8 @@ body { background: var(--white); color: var(--navy); font-family: 'DM Sans', san
 
 /* ── RESPONSIVE ────────────────────── */
 @media (max-width: 1100px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-flex-row { flex-wrap: wrap; }
+    .glass-panel { flex: 1 1 45%; } /* Drops to 2x2 grid smoothly on smaller screens */
 }
 @media (max-width: 968px) {
     .hero-container { flex-direction: column; text-align: center; }
@@ -97,6 +103,6 @@ body { background: var(--white); color: var(--navy); font-family: 'DM Sans', san
     .form-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-    .services-grid { grid-template-columns: 1fr; }
+    .glass-panel { flex: 1 1 100%; } /* Stacks correctly ONLY on mobile phones */
     .glass-card { padding: 40px 20px; }
 }
