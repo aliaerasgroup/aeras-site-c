@@ -61,7 +61,7 @@
         <div class="section-header reveal">
             <h2>Our Divisions</h2>
         </div>
-        <div class="services-grid">
+        <div class="services-flex-row">
             <div class="glass-panel reveal bubbly">
                 <div class="img-container"><img src="aeras-strategy.jpg" alt="Strategy" class="division-img"></div>
                 <span class="tag">Strategy</span>
@@ -110,27 +110,19 @@
             <h2>Initiate Connection</h2>
             <p class="contact-sub">Our team typically responds within 24 hours.</p>
             
-            <form id="contact-form" action="https://formsubmit.co/hello@aerasgroup.ca" method="POST">
+            <form action="https://formsubmit.co/hello@aerasgroup.ca" method="POST">
                 <input type="hidden" name="_subject" value="New Website Inquiry: Aeras Group">
-                <input type="hidden" name="_template" value="table">
                 <input type="text" name="_honey" style="display:none">
 
                 <div class="form-grid">
-                    <div class="full-width">
-                        <input type="text" name="name" placeholder="Full Name" required class="glass-input">
-                    </div>
-                    
+                    <input type="text" name="name" placeholder="Full Name" required class="full-width glass-input">
                     <input type="tel" name="phone" placeholder="Phone Number" required class="glass-input">
-                    
                     <input type="email" name="email" placeholder="Email Address" required class="glass-input">
-                    
                     <input type="text" name="business_name" placeholder="Business Name (Optional)" class="glass-input">
-                    
                     <input type="text" name="business_website" placeholder="Business Website (Optional)" class="glass-input">
-                    
                     <textarea name="message" rows="5" placeholder="Message" required class="full-width glass-input"></textarea>
                 </div>
-                <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
+                <button type="submit" class="btn-primary">Send Message</button>
             </form>
         </div>
     </section>
