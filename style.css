@@ -12,12 +12,13 @@
 html { scroll-behavior: smooth; }
 body { background: var(--white); color: var(--navy); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
 
-/* ── BACKGROUND ────────────────────── */
+/* ── BACKGROUND (Video visibility increased) ────────────────────── */
 .video-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -2; overflow: hidden; }
 #bg-video { width: 100vw; height: 100vh; object-fit: cover; }
 .video-overlay { 
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-    background: rgba(255, 255, 255, 0.5); /* Much more visible video now */
+    /* Lowered from 0.5 to 0.35 to make the video "pop" more */
+    background: rgba(255, 255, 255, 0.35); 
     backdrop-filter: blur(4px);
 }
 
