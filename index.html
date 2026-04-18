@@ -108,40 +108,29 @@
     <section id="contact" class="section">
         <div class="glass-card reveal bubbly">
             <h2>Initiate Connection</h2>
-            <p class="contact-sub">All mandatory fields are marked accordingly.</p>
+            <p class="contact-sub">Our team typically responds within 24 hours.</p>
             
             <form id="contact-form" action="https://formsubmit.co/hello@aerasgroup.ca" method="POST">
-                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_subject" value="New Website Inquiry: Aeras Group">
                 <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_subject" value="New Aeras Group Lead">
+                <input type="text" name="_honey" style="display:none">
 
                 <div class="form-grid">
-                    <div class="input-wrap full-width">
-                        <input type="text" name="name" id="name" placeholder="Full Name (Mandatory)" required class="glass-input">
+                    <div class="full-width">
+                        <input type="text" name="name" placeholder="Full Name" required class="glass-input">
                     </div>
                     
-                    <div class="input-wrap">
-                        <input type="tel" name="phone" id="phone" placeholder="Phone Number (Mandatory)" required class="glass-input">
-                    </div>
+                    <input type="tel" name="phone" placeholder="Phone Number" required class="glass-input">
                     
-                    <div class="input-wrap">
-                        <input type="email" name="email" id="email" placeholder="Email Address (Mandatory)" required class="glass-input">
-                    </div>
+                    <input type="email" name="email" placeholder="Email Address" required class="glass-input">
                     
-                    <div class="input-wrap">
-                        <input type="text" name="business_name" id="business_name" placeholder="Business Name (Optional)" class="glass-input">
-                    </div>
+                    <input type="text" name="business_name" placeholder="Business Name (Optional)" class="glass-input">
                     
-                    <div class="input-wrap">
-                        <input type="url" name="business_website" id="business_website" placeholder="Business Website (Optional)" class="glass-input">
-                    </div>
+                    <input type="text" name="business_website" placeholder="Business Website (Optional)" class="glass-input">
                     
-                    <div class="input-wrap full-width">
-                        <textarea name="message" id="message" rows="5" placeholder="Your Message" required class="glass-input"></textarea>
-                    </div>
+                    <textarea name="message" rows="5" placeholder="Message" required class="full-width glass-input"></textarea>
                 </div>
                 <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
-                <p id="error-message" style="color: #4A7FB5; font-size: 0.9rem; margin-top: 15px; font-weight: 700; display: none;"></p>
             </form>
         </div>
     </section>
