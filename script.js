@@ -19,14 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // 2. 3D CLOUD SYSTEM (Transparent to show video)
+    // 2. 3D CLOUD SYSTEM (Now properly visible and layered)
     const container = document.getElementById('cloud-canvas');
+    // Ensure Three is loaded before executing
     if (container && typeof THREE !== 'undefined') {
         let scene, camera, renderer, cloudParticles = [];
 
         scene = new THREE.Scene();
-        // Fog shifted to white/light to match the bright theme
-        scene.fog = new THREE.FogExp2(0xffffff, 0.001);
 
         camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
         camera.position.z = 1;
@@ -34,21 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
         camera.rotation.y = -0.12;
         camera.rotation.z = 0.27;
 
-        // alpha: true allows the video to show through from behind
+        // alpha: true is crucial so the video background displays behind it
         renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
+        // Clear color set entirely transparent
+        renderer.setClearColor(0xffffff, 0); 
         container.appendChild(renderer.domElement);
 
-        // Soft white ambient light
-        const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+        // Ambient light
+        const ambient = new THREE.AmbientLight(0xffffff, 0.8);
         scene.add(ambient);
         
-        // Directional light giving volume to clouds
+        // Directional Light
         const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
         directionalLight.position.set(0, 0, 1);
         scene.add(directionalLight);
 
-        // Subtle Sky Blue tint light
+        // Sky Blue tint light to tie into branding
         const blueLight = new THREE.PointLight(0x4A7FB5, 20, 500, 2);
         blueLight.position.set(200, 300, 100);
         scene.add(blueLight);
@@ -62,19 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const cloudMaterial = new THREE.MeshLambertMaterial({
                 map: texture,
                 transparent: true,
-                opacity: 0.35, // Soft opacity for elegance
+                opacity: 0.7, // Increased opacity so clouds pop over the video overlay
                 color: 0xffffff,
                 blending: THREE.NormalBlending,
                 depthWrite: false
             });
 
-            // Generate 45 clouds, positioned heavily to the RIGHT side
+            // Position clouds exclusively on the right side
             for(let p = 0; p < 45; p++) {
                 let cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
                 
-                // Pushing X coordinates to the right (positive values)
                 cloud.position.set(
-                    Math.random() * 600 + 100, // Keeps clouds right-justified
+                    Math.random() * 600 + 150, // Pushed to the right X axis
                     500,
                     Math.random() * 500 - 450
                 );
@@ -92,8 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
         function animateClouds() {
             requestAnimationFrame(animateClouds);
             cloudParticles.forEach(p => {
-                p.rotation.z -= 0.0008; // Slow, premium rotation
+                p.rotation.z -= 0.001; 
             });
+            // Parallax scroll effect
             camera.position.y = -window.scrollY * 0.08;
             renderer.render(scene, camera);
         }
@@ -126,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     btn.textContent = 'Message Sent ✓';
-                    btn.style.background = '#4A7FB5'; // Sky Blue success
+                    btn.style.background = '#4A7FB5'; 
                     btn.style.color = '#fff';
                     contactForm.reset();
 
@@ -142,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (err) {
                 btn.textContent = 'Something went wrong — try again';
-                btn.style.background = '#AFC4D6';
+                btn.style.background = '#1F3A5F';
                 btn.disabled = false;
 
                 setTimeout(() => {
