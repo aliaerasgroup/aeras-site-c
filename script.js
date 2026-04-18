@@ -1,7 +1,3 @@
-/* =========================================================
-   AERAS GROUP — script.js
-   ========================================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
     
     // 1. SCROLL REVEAL ANIMATIONS
@@ -17,16 +13,29 @@ document.addEventListener('DOMContentLoaded', () => {
     
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // 2. CONTACT FORM LOGIC (Formspree Integration)
+    // 2. CONTACT FORM VALIDATION & SUBMISSION
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
-    
+    const errBox = document.getElementById('error-message');
+
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const originalText = btn.textContent;
-            btn.textContent = 'Sending...';
+            
+            // Clear previous errors
+            errBox.style.display = 'none';
+            btn.textContent = 'Authenticating...';
             btn.disabled = true;
+
+            // Basic Field Check
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+
+            if (!name || !phone || !email) {
+                showError("Please complete all mandatory fields.");
+                return;
+            }
 
             try {
                 const response = await fetch(form.action, { 
@@ -36,21 +45,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 
                 if (response.ok) {
-                    btn.textContent = 'Message Sent ✓';
+                    btn.textContent = 'Connection Established ✓';
                     btn.style.background = '#4A7FB5';
                     form.reset();
                     
                     setTimeout(() => { 
-                        btn.textContent = originalText; 
+                        btn.textContent = 'Send Message'; 
                         btn.style.background = '';
                         btn.disabled = false;
-                    }, 4000);
-                } else throw new Error('Network error');
+                    }, 5000);
+                } else {
+                    const data = await response.json();
+                    showError(data.message || "The server rejected the connection. Please try again.");
+                }
             } catch (err) {
-                btn.textContent = 'Try Again';
-                btn.disabled = false;
-                setTimeout(() => { btn.textContent = originalText; }, 4000);
+                showError("Connection failed. Please check your network and try again.");
             }
         });
+    }
+
+    function showError(msg) {
+        errBox.textContent = msg;
+        errBox.style.display = 'block';
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
     }
 });
