@@ -19,71 +19,68 @@ document.addEventListener('DOMContentLoaded', () => {
     
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // 2. REALISTIC 3D CLOUD PARTICLE SYSTEM
+    // 2. 3D CLOUD SYSTEM (Transparent to show video)
     const container = document.getElementById('cloud-canvas');
-    if (container) {
+    if (container && typeof THREE !== 'undefined') {
         let scene, camera, renderer, cloudParticles = [];
 
-        // Scene Setup
         scene = new THREE.Scene();
-        // Match the fog to your Deep Navy brand color
-        scene.fog = new THREE.FogExp2(0x0F1C2E, 0.001);
+        // Fog shifted to white/light to match the bright theme
+        scene.fog = new THREE.FogExp2(0xffffff, 0.001);
 
-        // Camera Setup
         camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
         camera.position.z = 1;
         camera.rotation.x = 1.16;
         camera.rotation.y = -0.12;
         camera.rotation.z = 0.27;
 
-        // Renderer Setup
+        // alpha: true allows the video to show through from behind
         renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x0F1C2E, 1); // Deep Navy background
         container.appendChild(renderer.domElement);
 
-        // Lighting (Cinematic rim lighting)
-        const ambient = new THREE.AmbientLight(0x4A7FB5, 0.5); // Sky Blue tint
+        // Soft white ambient light
+        const ambient = new THREE.AmbientLight(0xffffff, 0.6);
         scene.add(ambient);
         
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        // Directional light giving volume to clouds
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
         directionalLight.position.set(0, 0, 1);
         scene.add(directionalLight);
 
-        // Cinematic Blue/Steel Lights
-        const flash = new THREE.PointLight(0xAFC4D6, 50, 500, 1.7); // Steel Blue
-        flash.position.set(200, 300, 100);
-        scene.add(flash);
+        // Subtle Sky Blue tint light
+        const blueLight = new THREE.PointLight(0x4A7FB5, 20, 500, 2);
+        blueLight.position.set(200, 300, 100);
+        scene.add(blueLight);
 
-        // Load Realistic Cloud/Smoke Texture
         const loader = new THREE.TextureLoader();
         loader.setCrossOrigin('anonymous');
         
-        // Using a reliable open-source WebGL smoke texture
         loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/smoke.png', function(texture) {
             
             const cloudGeo = new THREE.PlaneGeometry(500, 500);
             const cloudMaterial = new THREE.MeshLambertMaterial({
                 map: texture,
                 transparent: true,
-                opacity: 0.55, // Semi-transparent for layered depth
+                opacity: 0.35, // Soft opacity for elegance
+                color: 0xffffff,
                 blending: THREE.NormalBlending,
                 depthWrite: false
             });
 
-            // Generate 60 intersecting cloud planes
-            for(let p = 0; p < 60; p++) {
+            // Generate 45 clouds, positioned heavily to the RIGHT side
+            for(let p = 0; p < 45; p++) {
                 let cloud = new THREE.Mesh(cloudGeo, cloudMaterial);
+                
+                // Pushing X coordinates to the right (positive values)
                 cloud.position.set(
-                    Math.random() * 800 - 400,
+                    Math.random() * 600 + 100, // Keeps clouds right-justified
                     500,
                     Math.random() * 500 - 450
                 );
-                // Randomize rotation and scale
                 cloud.rotation.x = 1.16;
                 cloud.rotation.y = -0.12;
                 cloud.rotation.z = Math.random() * 360;
-                cloud.material.opacity = 0.4;
                 
                 cloudParticles.push(cloud);
                 scene.add(cloud);
@@ -92,22 +89,15 @@ document.addEventListener('DOMContentLoaded', () => {
             animateClouds();
         });
 
-        // Animation Loop
         function animateClouds() {
             requestAnimationFrame(animateClouds);
-            
-            // Slowly rotate each cloud sprite to simulate billowing
             cloudParticles.forEach(p => {
-                p.rotation.z -= 0.001;
+                p.rotation.z -= 0.0008; // Slow, premium rotation
             });
-
-            // Subtle camera movement on scroll
-            camera.position.y = -window.scrollY * 0.1;
-            
+            camera.position.y = -window.scrollY * 0.08;
             renderer.render(scene, camera);
         }
 
-        // Handle Resize
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
@@ -115,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. CONTACT FORM SUBMISSION LOGIC (Unchanged, functioning perfectly)
+    // 3. CONTACT FORM LOGIC
     const contactForm = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
 
@@ -136,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     btn.textContent = 'Message Sent ✓';
-                    btn.style.background = '#4A7FB5';
+                    btn.style.background = '#4A7FB5'; // Sky Blue success
                     btn.style.color = '#fff';
                     contactForm.reset();
 
@@ -152,14 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (err) {
                 btn.textContent = 'Something went wrong — try again';
-                btn.style.background = 'rgba(255,80,80,0.2)';
-                btn.style.color = '#fff';
+                btn.style.background = '#AFC4D6';
                 btn.disabled = false;
 
                 setTimeout(() => {
                     btn.textContent = originalText;
                     btn.style.background = '';
-                    btn.style.color = '';
                     btn.style.opacity = '';
                 }, 4000);
             }
