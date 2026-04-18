@@ -1,22 +1,26 @@
 /* =========================================================
-   AERAS GROUP — Light, Airy, Premium iOS Glass Theme
+   AERAS GROUP — Ultra Premium iOS Liquid Glass
    ========================================================= */
 
 :root {
-    var(--navy): #0F1C2E;
-    var(--midnight): #1F3A5F;
-    var(--sky): #4A7FB5;
-    var(--steel): #AFC4D6;
-    var(--grey): #D9DEE3;
-    var(--white): #FFFFFF;
+    /* Theme Colors */
+    --navy-dark: #070e17; /* Darker core for gradients */
+    --navy: #0F1C2E;      /* Deep Navy */
+    --midnight: #1F3A5F;  /* Midnight Blue */
+    --sky: #4A7FB5;       /* Sky Blue */
+    --steel: #AFC4D6;     /* Soft Steel Blue */
+    --grey: #D9DEE3;      /* Cool Grey */
+    --white: #FFFFFF;
     
-    /* Bubbly Light Glass Variables */
-    --glass-bg: rgba(255, 255, 255, 0.75);
-    --glass-border: rgba(255, 255, 255, 0.9);
-    --glass-shadow: 0 12px 40px 0 rgba(31, 58, 95, 0.08);
+    /* Bubbly Liquid Glass Variables */
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-blur: blur(40px) saturate(200%);
+    /* The double inset shadow creates the thick "magnifying/bubbly" rim */
+    --glass-shadow: 0 30px 60px rgba(15, 28, 46, 0.1), inset 0 2px 15px rgba(255, 255, 255, 0.9), inset 0 -2px 10px rgba(255, 255, 255, 0.3);
     
-    --font-heading: 'DM Sans', sans-serif;
-    --font-body: 'Montserrat', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
     --font-serif: 'Playfair Display', serif;
 }
 
@@ -39,12 +43,10 @@ body {
 #bg-video {
     width: 100vw; height: 100vh; object-fit: cover;
 }
-/* This overlay washes out the dark video, making it airy and bright */
 .video-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.88); 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    /* Gradient overlay lets video texture peek through while keeping it airy */
+    background: linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 100%);
 }
 
 /* ── LAYER 2: 3D CLOUD CANVAS ──────────────────── */
@@ -56,98 +58,110 @@ body {
 /* ── LAYER 3: UI & NAVIGATION ──────────────────── */
 .glass-nav {
     position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
-    width: calc(100% - 48px); max-width: 1400px; height: 75px;
-    background: rgba(255, 255, 255, 0.85); 
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.6); 
-    border-radius: 50px; /* Bubbly pill shape */
-    display: flex; justify-content: space-between; align-items: center; padding: 0 32px;
+    width: calc(100% - 48px); max-width: 1400px; height: 85px;
+    background: var(--glass-bg); 
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border); 
+    border-radius: 100px; /* Bubbly pill shape */
+    display: flex; justify-content: space-between; align-items: center; padding: 0 16px 0 32px;
     z-index: 100; box-shadow: var(--glass-shadow);
 }
-.nav-logo { height: 32px; width: auto; object-fit: contain; }
+.nav-logo { height: 50px; width: auto; object-fit: contain; } /* Made significantly larger */
 .nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 14px; transition: color 0.3s; }
+.nav-links a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 15px; transition: color 0.3s; }
 .nav-links a:hover { color: var(--sky); }
-.btn-glass { 
-    background: var(--navy); color: var(--white) !important; 
-    padding: 12px 24px; border-radius: 40px; 
+
+/* Deep Navy Pill Button for Nav */
+.btn-nav-contact { 
+    background: var(--navy) !important; color: var(--white) !important; 
+    padding: 16px 36px; border-radius: 100px; font-family: var(--font-heading);
+    box-shadow: 0 10px 20px rgba(15, 28, 46, 0.2); transition: all 0.3s ease !important;
 }
-.btn-glass:hover { background: var(--sky); }
+.btn-nav-contact:hover { background: var(--midnight) !important; transform: scale(1.05); }
 
 /* ── HERO SECTION ─────────────────────── */
 .hero { height: 100vh; width: 100vw; display: flex; align-items: center; padding: 0 8vw; }
 .hero-left { max-width: 65%; text-align: left; }
-.hero-left h1 { 
+
+.gradient-text {
     font-family: var(--font-heading); 
     font-size: clamp(4rem, 7vw, 7.5rem); 
-    line-height: 1.05; color: var(--navy); 
+    line-height: 1.05; 
+    font-weight: 800; /* Bolded as requested */
     letter-spacing: -0.03em;
+    /* Dark Blue to Deep Navy Gradient */
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--midnight) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* ── GENERAL SECTIONS & GLASS CARDS ──────────────────── */
 .section { padding: 12vh 8vw; display: flex; flex-direction: column; position: relative; z-index: 10; align-items: center; }
-.glass-card {
-    background: var(--glass-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-    border: 1px solid var(--glass-border); border-radius: 32px; padding: 80px;
-    max-width: 950px; width: 100%; box-shadow: var(--glass-shadow);
+
+/* The master bubbly glass class */
+.glass-card, .glass-panel {
+    background: var(--glass-bg); 
+    backdrop-filter: var(--glass-blur); 
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border); 
+    border-radius: 40px; 
+    box-shadow: var(--glass-shadow);
 }
+
+.glass-card { padding: 80px; max-width: 950px; width: 100%; }
 
 /* ── DEFINITION & ABOUT ──────────────────────────── */
 .dict-word { font-family: var(--font-serif); font-style: italic; font-size: 5.5rem; margin-bottom: 0; color: var(--navy); font-weight: 400; }
 .dict-phonetic { font-family: var(--font-body); color: var(--sky); margin-bottom: 32px; font-size: 1.3rem; font-weight: 500; }
-.dict-pos { font-style: italic; color: var(--steel); margin-left: 8px; font-weight: 400; }
+.dict-pos { font-style: italic; color: var(--midnight); margin-left: 8px; font-weight: 400; }
 .dict-def p { margin-bottom: 16px; font-size: 1.25rem; line-height: 1.6; color: var(--midnight); }
 .def-num { font-weight: 700; color: var(--sky); margin-right: 8px; }
-.def-divider { border: 0; height: 1px; background: rgba(31, 58, 95, 0.1); margin: 48px 0; }
+.def-divider { border: 0; height: 1px; background: rgba(15, 28, 46, 0.1); margin: 48px 0; }
 .about-text p { font-size: 1.15rem; line-height: 1.8; color: var(--midnight); }
 .about-text strong { color: var(--navy); font-weight: 700; }
 
 /* ── DIVISIONS ──────────────────────────── */
-.section-header h2 { font-family: var(--font-heading); font-size: 3rem; text-align: center; margin-bottom: 60px; color: var(--navy); }
+.section-header h2 { font-family: var(--font-heading); font-size: 3rem; text-align: center; margin-bottom: 60px; color: var(--navy); font-weight: 700; }
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; width: 100%; max-width: 1300px; }
-.service-card {
-    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border); border-radius: 24px; padding: 32px;
-    box-shadow: var(--glass-shadow); transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(31, 58, 95, 0.12); }
-.division-img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 24px; }
+
+.glass-panel { padding: 32px; transition: transform 0.4s ease, box-shadow 0.4s ease; border-radius: 32px; }
+.glass-panel:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 40px 80px rgba(15, 28, 46, 0.15), inset 0 2px 15px rgba(255, 255, 255, 1); }
+
+.division-img { width: 100%; height: auto; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 .tag { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--sky); font-weight: 700; display: block; margin-bottom: 8px; }
-.service-card h3 { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 16px; color: var(--navy); }
-.service-list { list-style: none; color: var(--midnight); font-size: 1rem; line-height: 1.7; }
+.glass-panel h3 { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 16px; color: var(--navy); font-weight: 700; }
+.service-list { list-style: none; color: var(--midnight); font-size: 1rem; line-height: 1.7; font-weight: 500; }
 .service-list li { margin-bottom: 8px; padding-left: 20px; position: relative; }
 .service-list li::before { content: "•"; position: absolute; left: 0; color: var(--sky); font-weight: bold; }
 
 /* ── CONTACT FORM ──────────────────────────── */
 .contact-sec { z-index: 20; }
-.contact-sec h2 { font-family: var(--font-heading); font-size: 3rem; color: var(--navy); margin-bottom: 8px; }
-.contact-sub { color: var(--sky); font-weight: 500; margin-bottom: 40px; font-size: 1.1rem; }
+.contact-sec h2 { font-family: var(--font-heading); font-size: 3rem; color: var(--navy); margin-bottom: 8px; font-weight: 700; }
+.contact-sub { color: var(--midnight); font-weight: 500; margin-bottom: 40px; font-size: 1.1rem; }
 
-.form-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; /* Two columns for 50/50 split */
-    gap: 20px; 
-    margin-bottom: 24px; 
-}
-.full-width { grid-column: 1 / -1; } /* Spans all columns */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+.full-width { grid-column: 1 / -1; }
 
-input, textarea {
-    width: 100%; padding: 18px 20px;
-    background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(175, 196, 214, 0.4);
-    border-radius: 12px; color: var(--navy); font-family: var(--font-body); font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+.glass-input {
+    width: 100%; padding: 18px 24px;
+    background: rgba(255, 255, 255, 0.6); 
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px; color: var(--navy); font-family: var(--font-body); font-size: 1.05rem; font-weight: 500;
+    box-shadow: inset 0 2px 5px rgba(15, 28, 46, 0.05);
+    transition: all 0.3s;
 }
-textarea { resize: vertical; }
-input::placeholder, textarea::placeholder { color: var(--steel); }
-input:focus, textarea:focus { outline: none; border-color: var(--sky); box-shadow: 0 0 0 4px rgba(74, 127, 181, 0.1); }
+textarea.glass-input { resize: vertical; border-radius: 20px; }
+.glass-input::placeholder { color: var(--steel); font-weight: 400; }
+.glass-input:focus { outline: none; border-color: var(--sky); background: rgba(255, 255, 255, 0.9); box-shadow: 0 0 0 4px rgba(74, 127, 181, 0.15); }
 
 .btn-primary {
-    background: var(--navy); color: var(--white); border: none; padding: 20px 40px; border-radius: 100px;
-    font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.3s, transform 0.3s;
+    background: var(--navy); color: var(--white); border: none; padding: 22px 40px; border-radius: 100px;
+    font-size: 1.2rem; font-weight: 700; cursor: pointer; transition: all 0.3s;
     width: 100%; font-family: var(--font-heading);
+    box-shadow: 0 15px 30px rgba(15, 28, 46, 0.2);
 }
-.btn-primary:hover { background: var(--sky); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--midnight); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(15, 28, 46, 0.3); }
 
 /* ── FOOTER & UTILS ──────────────────────────── */
 .site-footer { text-align: center; padding: 40px; color: var(--midnight); font-weight: 500; position: relative; z-index: 10; }
@@ -158,5 +172,6 @@ input:focus, textarea:focus { outline: none; border-color: var(--sky); box-shado
     .hero-left { max-width: 100%; }
     .form-grid { grid-template-columns: 1fr; }
     .nav-links { display: none; }
-    .glass-nav { padding: 0 20px; }
+    .glass-nav { padding: 0 16px; height: 75px; }
+    .nav-logo { height: 40px; }
 }
