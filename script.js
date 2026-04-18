@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. SCROLL REVEALS
+    // 1. SCROLL REVEAL ANIMATIONS
     const revealElements = document.querySelectorAll('.reveal');
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // 2. CONTACT FORM LOGIC
+    // 2. CONTACT FORM LOGIC (Formspree Integration)
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
     
