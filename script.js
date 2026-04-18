@@ -1,3 +1,7 @@
+/* =========================================================
+   AERAS GROUP — script.js
+   ========================================================= */
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // 1. SCROLL REVEALS
@@ -10,11 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }, { threshold: 0.1 });
+    
     revealElements.forEach(el => revealOnScroll.observe(el));
 
     // 2. CONTACT FORM LOGIC
     const form = document.getElementById('contact-form');
     const btn = document.getElementById('submit-btn');
+    
     if (form) {
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -39,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         btn.style.background = '';
                         btn.disabled = false;
                     }, 4000);
-                } else throw new Error('Server error');
+                } else throw new Error('Network error');
             } catch (err) {
                 btn.textContent = 'Try Again';
                 btn.disabled = false;
