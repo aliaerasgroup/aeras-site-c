@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@400;700;800&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -40,9 +40,9 @@
     </header>
 
     <section id="definition" class="section definition-sec">
-        <div class="glass-card reveal">
+        <div class="glass-card reveal bubbly">
             <h2 class="dict-word">Aeras</h2>
-            <p class="dict-phonetic">/'air-as/ <span class="dict-pos">noun</span></p>
+            <p class="dict-phonetic">/ 'air-as / <span class="dict-pos">noun</span></p>
             
             <div class="dict-def">
                 <p><span class="def-num">1.</span> Draws from concepts of air, atmosphere, and elevation; representing movement, clarity, and reach.</p>
@@ -62,7 +62,7 @@
             <h2>Our Divisions</h2>
         </div>
         <div class="services-grid">
-            <div class="service-card glass-panel reveal">
+            <div class="service-card glass-panel bubbly reveal">
                 <img src="aeras-strategy.jpg" alt="Aeras Strategy" class="division-img">
                 <span class="tag">Aeras Strategy</span>
                 <h3>Strategy</h3>
@@ -72,7 +72,7 @@
                     <li>Executive Advisory</li>
                 </ul>
             </div>
-            <div class="service-card glass-panel reveal" style="transition-delay: 0.1s;">
+            <div class="service-card glass-panel bubbly reveal" style="transition-delay: 0.1s;">
                 <img src="aeras-digital.jpg" alt="Aeras Digital" class="division-img">
                 <span class="tag">Aeras Digital</span>
                 <h3>Digital</h3>
@@ -82,7 +82,7 @@
                     <li>Process Automation</li>
                 </ul>
             </div>
-            <div class="service-card glass-panel reveal" style="transition-delay: 0.2s;">
+            <div class="service-card glass-panel bubbly reveal" style="transition-delay: 0.2s;">
                 <img src="aeras-talent.jpg" alt="Aeras Talent" class="division-img">
                 <span class="tag">Aeras Talent</span>
                 <h3>Talent</h3>
@@ -92,7 +92,7 @@
                     <li>Fractional Roles</li>
                 </ul>
             </div>
-            <div class="service-card glass-panel reveal" style="transition-delay: 0.3s;">
+            <div class="service-card glass-panel bubbly reveal" style="transition-delay: 0.3s;">
                 <img src="aeras-connect.jpg" alt="Aeras Connect" class="division-img">
                 <span class="tag">Aeras Connect</span>
                 <h3>Connect</h3>
@@ -106,20 +106,17 @@
     </section>
 
     <section id="contact" class="section contact-sec">
-        <div class="glass-card reveal">
+        <div class="glass-card reveal bubbly">
             <h2>Initiate Connection</h2>
             <p class="contact-sub">Our team typically responds within 24 hours.</p>
             
             <form id="contact-form" action="https://formspree.io/f/mqakpjne" method="POST">
                 <div class="form-grid">
                     <input type="text" name="Name" placeholder="Full Name" required class="full-width glass-input">
-                    
                     <input type="tel" name="Phone" placeholder="Phone Number" required class="glass-input">
                     <input type="email" name="Email" placeholder="Email Address" required class="glass-input">
-                    
                     <input type="text" name="Business" placeholder="Business Name (Optional)" class="glass-input">
                     <input type="url" name="Website" placeholder="Business Website (Optional)" class="glass-input">
-                    
                     <textarea name="Message" rows="5" placeholder="How can we help you?" required class="full-width glass-input"></textarea>
                 </div>
                 <button type="submit" id="submit-btn" class="btn-primary">Send Message</button>
