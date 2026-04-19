@@ -39,7 +39,7 @@ body { background: var(--white); color: var(--navy); font-family: 'DM Sans', san
 /* ── BUBBLY CARDS & PANELS ─────────── */
 .section { padding: 12vh 8vw; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 10; }
 .bubbly { background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: 1px solid var(--glass-border); box-shadow: var(--bubbly-rim); }
-.glass-card { padding: 80px; max-width: 1000px; width: 100%; border-radius: 40px; }
+.glass-card { padding: 40px 80px 80px 80px; max-width: 1000px; width: 100%; border-radius: 40px; }
 
 /* ── DIVISIONS SECTION (FLEX ROW FIX) ── */
 .section-header h2 { font-family: 'Montserrat', sans-serif; font-size: 3rem; color: var(--navy); font-weight: 800; margin-bottom: 60px; }
